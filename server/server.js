@@ -42,16 +42,6 @@ app.get('/todos', authenticate, (req, res) => {
 // GET /todos/1234
 app.get('/todos/:id', authenticate, (req, res) => {
   var id = req.params.id
-
-  // Validate id using isValid
-    // 404 - send vack empty send
-
-  // findById
-    // success
-      // if todo - send it back
-      // if no todo - send back 404 with empty body
-    // error
-      // 400 - and send empty body back
   if(!ObjectId.isValid(id)) {
     return res.status(404).send()
   }
@@ -71,17 +61,7 @@ app.get('/todos/:id', authenticate, (req, res) => {
   
 })
 
-app.delete('/todos/:id', (req, res) => {
-  // get the id
-  // validate the id -> not valid? return 404
-
-  // remove todo by id
-    // success
-      // if no doc, send 404
-      // if doc, send doc back with 200
-    // error
-      // 400 with empty object
-  
+app.delete('/todos/:id', (req, res) => {  
   var id = req.params.id
 
   if(!ObjectId.isValid(id)){
