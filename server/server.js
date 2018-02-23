@@ -1,7 +1,7 @@
 require('./config/config');
 
 const express = require('express')
-// The body parser allows us to send json to the server. The server can now take the server and process it
+
 const bodyParser = require('body-parser')
 const { ObjectId } = require('mongodb')
 const _ = require('lodash')
@@ -39,7 +39,6 @@ app.get('/todos', authenticate, (req, res) => {
   })
 })
 
-// GET /todos/1234
 app.get('/todos/:id', authenticate, (req, res) => {
   var id = req.params.id
   if(!ObjectId.isValid(id)) {
